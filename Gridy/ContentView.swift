@@ -9,14 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     let names = ["Zeynep", "Özlem", "Hakan"]
-    let columns: [GridItem] = [GridItem(.flexible(minimum: 20)),
-                               GridItem(.flexible(minimum: 20)),
-                               GridItem(.flexible(minimum: 20))]
+    let columns: [GridItem] = [GridItem(.flexible(minimum: 20, maximum: 100)),
+                               GridItem(.flexible(minimum: 20, maximum: 100)),
+                               GridItem(.flexible(minimum: 20, maximum: 100))]
     
     var body: some View {
         LazyVGrid(columns: columns, content: {
             ForEach(names, id: \.self) { name in
-                Text(name)
+                NameView(name: name)
             }
         })
     }
