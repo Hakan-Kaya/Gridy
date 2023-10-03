@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    let names = ["Zeynep", "Özlem", "Hakan"]
+    let columns: [GridItem] = [GridItem(.flexible(minimum: 20)),
+                               GridItem(.flexible(minimum: 20)),
+                               GridItem(.flexible(minimum: 20))]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        LazyVGrid(columns: columns, content: {
+            ForEach(names, id: \.self) { name in
+                Text(name)
+            }
+        })
     }
 }
 
