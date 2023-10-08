@@ -11,8 +11,11 @@ struct NameView: View {
     let name: String
     
     var body: some View {
-        Image(systemName: "photo.artframe")
-        Text(name)
+        VStack {
+            Image(systemName: "photo.artframe").padding()
+            Text(name)
+        }
+        .padding()
     }
 }
 
